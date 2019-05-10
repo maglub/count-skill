@@ -36,7 +36,7 @@ class Count(MycroftSkill):
 #            number = int(message.data.get("number"))
 #            response = {'number': message.data.get("number")}
 #            self.speak_dialog("count_start", data=response)
-            self.speak("the beer is " + str(int(tI)) + " point " + str(tD) " + degrees celcius")
+            self.speak("the beer is " + str(int(tI)) + " point " + str(tD) + " degrees celcius")
 #            for i in range(1, number+1, +1):
 #                self.speak("magnus " + str(i) + " .")
 #            self.speak_dialog("count_stop")
