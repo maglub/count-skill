@@ -4,3 +4,4 @@ t=`curl --silent -G 'http://192.168.4.55:8086/query?pretty=true' --data-urlencod
 
 echo "t: $t C" >> /tmp/magnus.out
 date >> /tmp/magnus.out
+echo -n $t
