@@ -17,6 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 from mycroft import MycroftSkill, intent_file_handler
 import subprocess
+import math
 
 
 class Count(MycroftSkill):
@@ -27,13 +28,15 @@ class Count(MycroftSkill):
     def handle_count(self, message):
         try:
             temperature = subprocess.check_output(["/home/pi/skills/count-skill.maglub/getBeerTemperature.sh"])
+            tD, tI = math.modf(float(temperature))
+            tD = int(tD * 100)
 #            temperature = "1.5"
 #            temperature = "1.0"
 #             temperature = "curl --silent -G 'http://192.168.4.55:8086/query?pretty=true' --data-urlencode "db=smokerWue" --data-urlencode "q=SELECT last(\"value\") FROM \"sensor_data\" WHERE (\"sensor\" = 'smoker-temp')" | jq ".results[].series[].values[]| .[1]""
 #            number = int(message.data.get("number"))
 #            response = {'number': message.data.get("number")}
 #            self.speak_dialog("count_start", data=response)
-            self.speak("the beer is " + str(temperature.decode('ascii')) + " degrees celcius")
+            self.speak("the beer is " + str(int(tI)) + " point " + str(tD) " degrees celcius")
 #            for i in range(1, number+1, +1):
 #                self.speak("magnus " + str(i) + " .")
 #            self.speak_dialog("count_stop")
