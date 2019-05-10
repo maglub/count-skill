@@ -26,8 +26,8 @@ class Count(MycroftSkill):
     @intent_file_handler('count.intent')
     def handle_count(self, message):
         try:
-#            temperature = subprocess.check_output(["/home/pi/skills/count-skill.maglub/getBeerTemperature.sh"])
-            temperature = "1.0"
+            temperature = subprocess.check_output(["/home/pi/skills/count-skill.maglub/getBeerTemperature.sh"])
+#            temperature = "1.0"
 #             temperature = "curl --silent -G 'http://192.168.4.55:8086/query?pretty=true' --data-urlencode "db=smokerWue" --data-urlencode "q=SELECT last(\"value\") FROM \"sensor_data\" WHERE (\"sensor\" = 'smoker-temp')" | jq ".results[].series[].values[]| .[1]""
 #            number = int(message.data.get("number"))
 #            response = {'number': message.data.get("number")}
