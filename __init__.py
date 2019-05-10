@@ -29,7 +29,7 @@ class Count(MycroftSkill):
             response = {'number': message.data.get("number")}
             self.speak_dialog("count_start", data=response)
             for i in range(1, number+1, +1):
-                self.speak(str(i) + " .")
+                self.speak("magnus" + str(i) + " .")
             self.speak_dialog("count_stop")
             pass
         except:
